@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card">
+    <div class="content-1">
+      <span class="arrow-left">
+        <a [routerLink]="['/home']">Back</a>
+      </span>
+      <span class="like">
+        <a [routerLink]="['/fav']">Fav</a>
+      </span>
+      <div class="main-image">
+        <img [src]="crypto.iconUrl" alt="icon">
+      </div>
+    </div>
+    <div class="content-2">
+      <div class="sub-link">
+        <span *ngFor="let item of crypto.links">
+          {{ item.type }}
+        </span>
+      </div>
+    </div>
+    <div class="content-3">
+      <div class="branding">
+        <span>Name - {{ crypto.name }}</span>
+        <hr>
+        <h4>{{ crypto.symbol }}</h4>
+      </div>
+      <div class="paragraph">
+        <p>{{ crypto.marketCap | percent: '1.0' }}</p>
+      </div>
+      <div class="price">
+        <span>{{ crypto.price | currency:'USD':'$' }}</span>
+        <div class="space"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

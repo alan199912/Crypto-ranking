@@ -1,0 +1,13 @@
+<div class="flex">
+  <div class="container" *ngFor="let item of crypto; let uuid = index">
+    <img [src]="item.iconUrl" alt="icon" class="img-container">
+    <div class="layer-container" >
+      <div class="text-content" >
+        <div>
+          <p id="name">{{ item.name }}</p>
+        </div>
+        <a (click)="verCrypto(item.uuid)" class="btn">Show more</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.container {
+  background-color: #fff;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 280px;
+  height: 320px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .4s ease;
+}
+
+.img-container {
+  position: absolute;
+  object-fit: cover !important;
+  margin: 5%;
+  width: 150px;
+  height: auto;
+}
+
+.layer-container {
+  border: white solid 1px;
+  background-color: beige !important;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 400px;
+  clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100% );
+  transition: .4s;
+  transform: translateY(320px);
+}
+
+.text-content {
+  margin: 30px 0 0 15px;
+}
+
+#name {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+#symbol {
+  margin-top: 5px;
+  font-size: 11px;
+  padding-right: 2px;
+}
+
+.rank {
+  width: 200px;
+}
+
+.rank span {
+  font-size: 13px;
+  text-transform: lowercase;
+}
+
+.rank ul{
+  display: flex;
+  list-style: none;
+}
+
+
+ul li{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 5px;
+  font-size: 11px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: .5s;
+}
+
+#price {
+  margin-top: 5px;
+  font-weight: bolder;
+}
+
+.btn {
+  display: block;
+  margin: 10px 0 0 5px !important;
+  width: 120px;
+  text-align: center;
+  line-height: 40px;
+  background: rgb(82, 44, 218);
+  color: #fff;
+  font-size: 13px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(117, 84, 148, 0.3);
+  text-decoration: none;
+}
+
+.img-container:hover {
+  background-position: 0 -90px;
+}
+
+.container:hover .layer-container {
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+  transform: translateY(50%);
+}
+
+ul li:hover {
+  border-color: rgba(240, 58, 53, 1);
+}
+
+@media (max-width: 320px) {
+  .img-container {
+    margin: 20%;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  .img-container {
+    margin: 8.5%;
+  }
+}
