@@ -10,11 +10,10 @@ import { Crypto } from '../models/crypto.model';
 })
 export class CryptoService {
 
-  crypto: Crypto = new Crypto();
-
   readonly URL_API = 'https://api.coinranking.com/v2';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getCryptos(): Observable<Crypto> {
     return this.http.get<Crypto>(`${this.URL_API}/coins`);

@@ -10,18 +10,15 @@ import { CryptoService } from 'src/app/services/crypto.service';
 })
 export class CryptoDetailComponent implements OnInit {
 
-  crypto: Observable<Crypto> | undefined;
+  crypto!: any;
 
   constructor(private _crypto: CryptoService,  private _aRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    // console.log(this._aRoute.params._value.uuid)
-    this._crypto.getCrypto(this._aRoute.params._value.uuid) //? this error i dont know to fix but it's work
-      .subscribe( (data: any) => {
-        this.crypto =  data.data.coin;
-        // console.log(this.crypto.links)
-      })
+    this._crypto.getCrypto(this._aRoute.snapshot.params.uuid).subscribe( (crypto: any) => {
+        this.crypto = crypto.data.coin;
+      });
 
   }
 

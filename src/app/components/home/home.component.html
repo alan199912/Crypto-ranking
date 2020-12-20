@@ -1,5 +1,5 @@
-<div class="flex">
-  <div class="container" *ngFor="let item of crypto; let uuid = index">
+<div class="flex" *ngIf="crypto">                                <!-- * let uuid = index -->
+  <div class="container" *ngFor="let item of crypto;">
     <img [src]="item.iconUrl" alt="icon" class="img-container">
     <div class="layer-container" >
       <div class="text-content" >
@@ -7,6 +7,17 @@
           <p id="name">{{ item.name }}</p>
         </div>
         <a (click)="verCrypto(item.uuid)" class="btn">Show more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex" *ngIf="error">
+  <div class="container">
+    <p class="img-container">Please Download and Active Moesif Origin & CORS Changer</p>
+    <div class="layer-container">
+      <div class="text-content">
+        <a class="btn" rel="noopener noreferrer" target="_black" href="https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=es">Click</a>
       </div>
     </div>
   </div>

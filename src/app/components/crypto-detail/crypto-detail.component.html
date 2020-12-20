@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card">
+  <div class="card" *ngIf="crypto; else cryptoElse">
     <div class="content-1">
       <span class="arrow-left">
         <a [routerLink]="['/home']">Back</a>
@@ -33,5 +33,15 @@
       </div>
     </div>
   </div>
+  <ng-template #cryptoElse>
+    <div class="card">
+      <div class="content-1">
+      </div>
+      <div class="content-3">
+        <p class="paragraph">Dont exists that coin</p>
+      </div>
+    </div>
+  </ng-template>
+
 </div>
 

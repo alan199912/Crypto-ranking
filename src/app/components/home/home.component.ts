@@ -11,10 +11,8 @@ import { Crypto } from '../../models/crypto.model';
 })
 export class HomeComponent implements OnInit {
 
-  //// crypto: Crypto = new Crypto();
-
-  crypto: Observable<Crypto> | undefined; //* with $ mean Observable
-  //// crypto: any;
+  crypto: Array<Crypto> = new Array<Crypto>(); //* with $ mean Observable
+  error! : string;
 
   constructor(private _crypto: CryptoService, private router: Router) {
 
@@ -29,15 +27,21 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._crypto.getCryptos()
-      .subscribe( (data: any) => {
-        this.crypto = data.data.coins;
+    this._crypto.getCryptos().subscribe( (data: any) => {
+      for (const item of data.data.coins) {
+        this.crypto.push(item)
         console.log(this.crypto)
-      })
+      }
+    });
+    // * catch the error
+    this._crypto.getCryptos().toPromise()
+    .catch(error => {
+      this.error = error;
+      console.log(this.error);
+    });
   }
 
-  verCrypto(uuid: any) {
-    console.log(uuid);
+  verCrypto(uuid: string) {
     this.router.navigateByUrl(`/crypto/${uuid}`)
   }
 
