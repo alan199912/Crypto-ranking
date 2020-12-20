@@ -1,3 +1,10 @@
+# About
+usando la api de https://api.coinranking.com/v2/coins
+
+se tienen que descargar la extencion de google:
+  - https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=es
+ porque no le trae los datos de la api
+
 # ChallengeAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
